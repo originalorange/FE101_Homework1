@@ -1,0 +1,33 @@
+$myFavoriteColor: orange;
+$navlinks: 20px;
+
+
+nav { 
+  float: right;
+  width: 100%;
+  
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+    li {
+      display: inline;
+      font-size: $navlinks;
+      font-family: verdana;
+  
+        a, a:visited {
+          text-decoration: none;
+          color: white;
+          background-color: $myFavoriteColor;
+          padding: 10px 30px 10px 30px;
+          margin: 0 10px;
+        }
+        
+        a:active, a:hover {
+          background-color: #FF7A33;
+          text-decoration: none;
+        }
+    
+    }
+}

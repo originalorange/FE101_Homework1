@@ -1,0 +1,129 @@
+// partials
+@import 'nav';
+
+// variables
+$myFavoriteColor: orange;
+
+// mixins
+@mixin thumbnail ($width) {
+  width: $width;
+  height: 1.5 * $width;
+}
+
+
+// styles
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('../images/geometry2.png');
+  }
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  font-family: Verdana;
+  font-weight: bold;
+  font-size: 60px;
+  text-align: center;
+  color: $myFavoriteColor;
+  margin-bottom: 20px;
+}
+
+.menu {
+  width: 835px;
+  height: 25px;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  border: 2px solid $myFavoriteColor;
+}
+
+.gallery-one {
+  width: 800px;
+  padding: 20px;
+  height: 200px;
+  margin-bottom: 20px;
+  background-color: #FF7A33;
+  
+  .galleryitem {
+    @include thumbnail (110px);
+    float:left;
+    margin: 20px;
+    background-image: url('../images/georgie1.jpg');
+    background-size: cover;
+  }
+}
+
+.gallery-two {
+  @extend .gallery-one;
+  background-color: orange;
+  
+  .galleryitem {
+    @include thumbnail (110px);
+    float:left;
+    margin: 20px;
+    background-image: url('../images/weeg1.jpg');
+    background-size: cover;
+  }
+}
+
+// media queries
+@media all and (max-width: 400px)
+{
+
+  .container {
+    width: 400px;
+    padding-left: 0;
+    padding-right: 0;
+      }
+  
+  .header {
+    width: 100%;
+    font-size: 42px;
+  }
+
+  .menu {
+    display: none;
+  }
+
+
+  .gallery-one {
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin-bottom: 20px;
+      background-color: none;
+  
+
+    .galleryitem {
+      @include thumbnail (340px);
+      float: left;
+      margin: 20px;
+      background-image: url('../images/georgie1.jpg');
+      background-size: cover;
+      border: 3px solid #FF7A33;
+    }
+  }
+
+  .gallery-two {
+    width: 0px;
+    height: 0px;
+    background-color: none;
+      
+    .galleryitem {
+      @include thumbnail (340px);
+      float: left;
+      margin: 20px;
+      background-image: url('../images/georgie1.jpg');
+      background-size: cover;
+      border: 3px solid $myFavoriteColor;
+
+    }
+  }
+      
+}
